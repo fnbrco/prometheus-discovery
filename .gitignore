@@ -105,3 +105,4 @@ dist
 
 config/config.js
 targets*.json
+.DS_Store
