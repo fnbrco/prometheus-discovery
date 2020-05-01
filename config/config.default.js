@@ -7,6 +7,8 @@ config.webhookKeys = [
 config.prometheus = {
     // API Token to access DigitalOcean API
     do_token: '',
+    // If each tag should be in a separate file or all into one [single/multi]
+    fileMode: 'multi',
     // Tag list to look for droplets
     searchTags: [
         {
@@ -14,7 +16,7 @@ config.prometheus = {
             tag: 'prod-web-nyc',
             // Network type to use to obtain ipv4 (public/private)
             network: 'private',
-            // Whether the IP address or droplet name should be used in the target (useful if using pushprox)
+            // Whether the IP address or droplet name should be used in the target (useful for example if using pushprox)
             keyType: 'ip',
             // Prometheus labels to apply to all 'found' servers
             labels: {
@@ -30,8 +32,7 @@ config.prometheus = {
             network: 'public',
             keyType: 'name',
             labels: {
-                region: 'ams',
-                group: 'web_remote'
+                region: 'ams'
             },
             scrapePort: '5001',
             outputFileName: 'targets_ams.json'
@@ -41,8 +42,7 @@ config.prometheus = {
             network: 'public',
             keyType: 'name',
             labels: {
-                region: 'sfo',
-                group: 'web_remote'
+                region: 'sfo'
             },
             scrapePort: '5001',
             outputFileName: 'targets_sfo.json'

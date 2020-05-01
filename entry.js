@@ -17,5 +17,10 @@ const rfr = require('rfr');
         return;
     }
 
+    if(config.prometheus.fileMode != 'single' && config.prometheus.fileMode != 'multi') {
+        console.error('"config.prometheus.fileMode" must equal one of: single or multi - currently: ' + config.prometheus.fileMode);
+        return;
+    }
+
     rfr('server');
 })();
