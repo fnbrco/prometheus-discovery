@@ -11,7 +11,7 @@ server.use(restify.plugins.queryParser());
 server.get('/_health', (req, res, next) => res.send(200, 'Alive', {'content-type' : 'text/plain'}));
 
 // Endpoint to request target rewrite
-server.get('/write', (req, res, next) => {
+server.get('/trigger', (req, res, next) => {
     if(req.query.key) {
         req.headers['webhook-key'] = req.query.key;
     }
