@@ -7,7 +7,7 @@ When this happens a request is sent to [DigitalOcean](https://developers.digital
 
 Once this has happened a `targets.json` (name can be customised in config) file is written in [a format Prometheus understands](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config) and will automatically notice changes and begin scraping those nodes for data with the criteria defined for that prometheus instance, such as scrape path and interval.
 
-## Triggering
+## Triggering a rewrite
 This service is triggered via a web request sent to `/trigger` with either the header `webhook-key` or GET parameter `key`. The request must use a valid webhook key defined in `config.webhookKeys`.  
 For example:
 ```
@@ -44,3 +44,9 @@ Additionally you can decide whether the IP address or droplet name is used in th
 **Config key:** `config.prometheus.searchTags.$.keyType`  
 **Available config options:** `ip` or `name`
 
+### Config: No servers found
+By default, if no servers are found for any of the search tags the [rewrite action](https://github.com/fnbrco/prometheus-discovery#triggering-a-rewrite) will fail and respond with an error, you can override this on a per-tag basis.  
+If you set this value to `true` in *multi* [file mode](https://github.com/fnbrco/prometheus-discovery#config-file-mode), an empty file will be written. In *single* mode the tag will be skipped.
+
+**Config key:** `config.prometheus.searchTags.$.allowEmpty`  
+**Available config options:** `true` or `false`

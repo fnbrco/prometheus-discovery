@@ -25,7 +25,9 @@ config.prometheus = {
             // Chosen port where prometheus metrics are exposed - to be appended to the IP address
             scrapePort: '5001',
             // The name of the generated file
-            outputFileName: 'targets.json'
+            outputFileName: 'targets.json',
+            // Optional flag to allow no servers to be present with tag
+            allowEmpty: false
         },
         {
             tag: 'prod-web-ams',
@@ -35,7 +37,8 @@ config.prometheus = {
                 region: 'ams'
             },
             scrapePort: '5001',
-            outputFileName: 'targets_ams.json'
+            outputFileName: 'targets_ams.json',
+            allowEmpty: false
         },
         {
             tag: 'prod-web-sfo',
@@ -45,7 +48,8 @@ config.prometheus = {
                 region: 'sfo'
             },
             scrapePort: '5001',
-            outputFileName: 'targets_sfo.json'
+            outputFileName: 'targets_sfo.json',
+            allowEmpty: false
         }
     ]
 };
