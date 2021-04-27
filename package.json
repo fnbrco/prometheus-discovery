@@ -12,7 +12,7 @@
     "url": "git+https://github.com/fnbrco/prometheus-discovery.git"
   },
   "dependencies": {
-    "digitalocean": "^1.2.0",
+    "do-wrapper": "^4.4.1",
     "restify": "^8.5.1",
     "rfr": "^1.2.3"
   }
