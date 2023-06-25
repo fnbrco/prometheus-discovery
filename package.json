@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "do-wrapper": "^4.4.1",
-    "restify": "^8.5.1",
+    "restify": "^11.1.0",
     "rfr": "^1.2.3"
   }
 }
